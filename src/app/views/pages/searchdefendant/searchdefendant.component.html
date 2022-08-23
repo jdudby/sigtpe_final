@@ -1,0 +1,100 @@
+<div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+       <h3 style="font-weight:500; color:darkslategray">Rechercher un enfant dans la base de données<i class="icon-book"></i> </h3> 
+      </div>
+      <div class="card-body">
+
+          <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+            <form>
+                <fieldset>
+                    <legend>filtres de recherche</legend>
+    
+        <div class="form-row">
+
+         <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: azure;margin-left:1px;">
+            <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-6 mt-3">
+              <input  type="text" class="form-control" placeholder="nom" aria-label="Rechercher un dossier" aria-describedby="button-addon2" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-6 mt-3">
+                <input type="text" class="form-control" placeholder="prénom" aria-label="Rechercher un dossier" aria-describedby="button-addon2"  [(ngModel)]="firstname"  [ngModelOptions]="{standalone: true}">
+              </div>
+
+              <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-6">
+                <input  type="date" class="form-control" placeholder="Date de naissance " aria-label="Rechercher un dossier" aria-describedby="button-addon2" [(ngModel)]="datenaissance"  [ngModelOptions]="{standalone: true}">
+              </div>
+
+              <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-6">
+                <input type="text"  class="form-control" placeholder="lieu de naissance" aria-label="Rechercher un dossier" aria-describedby="button-addon2" [(ngModel)]="lieunaissance"  [ngModelOptions]="{standalone: true}">
+              </div>
+
+              <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-6">
+                <input type="text"  class="form-control" placeholder="Alias" aria-label="Rechercher un dossier" aria-describedby="button-addon2" [(ngModel)]="_alias"  [ngModelOptions]="{standalone: true}">
+              </div>
+
+            </div>
+
+            <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3" >
+            
+            <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <button class="btn btn-outline-success form-control" type="button" id="button-addon1" (click)="checkreturningchild()">Rechercher</button>
+            </div>
+
+            <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <button class="btn btn-outline-danger form-control" type="button" id="button-addon2" (click)="reset()">Réinitialiser</button>
+            </div>
+          </div>
+
+			  </div>
+            </fieldset>
+        </form>
+        </div>
+
+            <h5 class="mt-5">Listing des résultats...</h5>
+            <hr/>
+           
+            
+           
+              <button  class="btn btn-success btn-sm mb-4"  (click)="addchild()"> Ajouter un enfant </button>
+            
+            
+              
+            <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" class="table table-bordered table-striped table-sm"  id="child" name="child">
+                <thead>
+                  <tr>
+                    <th>Identifiant</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Date de naissance</th>
+                    <th>Sexe</th>
+                    <th>Lieu de naissance</th>
+                    <th>Éditer infos</th>
+                    <th>Voir casier</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let child of this.defendantList" >
+                    <td >{{child?.id}}</td>
+                    <td >{{child?.prenom}}</td>
+                    <td>{{child?.nom}}</td>
+                    <td >{{child?.datenaissance}}</td>
+                    <td >{{child?.sexe}}</td>
+                    <td>{{child?.lieunaissance}}</td>
+                    <td class="td_modif"   [attr.id]="child.id" (click)="editchild(child.id)" ><p style="display:inline-block;text-align:left;"> <i class="cil-pencil" style="display:inline-block;text-align:right;font-size:1.2em;color: rgb(39, 104, 158);"> ...</i></p></td>
+                    <td class="td_modif"   [attr.id]="child.id" (click)="gestion(child.id)" ><p style="display:inline-block;text-align:left;"> <i class="icon-eye" style="display:inline-block;text-align:right;font-size:1.2em;color: rgb(39, 104, 158);"></i></p></td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+
+        </div>
+ 
+    </div>
+    </div>
+
+  
+
+
+  

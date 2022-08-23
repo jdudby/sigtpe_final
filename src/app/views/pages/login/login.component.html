@@ -1,0 +1,67 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form autocomplete="off" >
+                <h1>Se connecter</h1>
+                <p class="text-medium-emphasis">Connexion au système SIGTPE</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="email"    
+                   cFormControl placeholder="email" [(ngModel)]="this.email"  name="email" required/>
+                </c-input-group>
+                <c-input-group class="error">
+                  <p class="help-block">{{this.error1}}</p>
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Password"
+                    type="password"
+                    [(ngModel)]="this.password"  name="password" required
+                  />
+                 
+                </c-input-group>
+                <c-input-group class="error">
+                  <p class="help-block">{{this.error2}}</p>
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton class="px-4" color="primary" (click)=onSubmit()>
+                      VALIDER
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <button cButton class="px-0" color="link">
+                      Mot de passe oublié ?
+                    </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          <c-card [ngStyle]="{'width.%': 44}" class="text-white bg-info py-5">
+            <c-card-body class="text-center">
+              <div>
+                <h2>SIGTPE</h2>
+                <p>
+                  Vers une gestion automatisée des dossiers juvéniles
+                </p>
+
+              </div>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
