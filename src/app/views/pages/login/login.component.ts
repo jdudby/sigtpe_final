@@ -10,7 +10,7 @@ import  {FLAG1, FLAG2, FLAG3, FLAG4} from '../../../../environments/environment'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  public user=new User("","","","","","","1900-01-01", []);
+  public user=new User();
   public email:string;
   public password:string;
   public error1:string;
@@ -45,6 +45,7 @@ export class LoginComponent {
       responseData => {
         this.user = <User> responseData.body;
         this.user.authorized=true;
+        this.user.password="";
         window.sessionStorage.setItem("sigtpeaccess",JSON.stringify(this.user));
         this.router.navigate(['dashboard']);
       }, 

@@ -1,0 +1,105 @@
+.form-left{
+padding-right: 10px;
+}
+
+.form-right{
+    padding-left: 10px;
+    }
+
+
+
+form{
+    background-color:#ecf5f4;
+    padding:10px 10px;
+}
+
+
+fieldset{
+    border: 1px rgb(33,123,150) solid;
+    padding: 10px 10px 30px 10px;
+  
+ 
+}
+
+legend{
+    background-color:rgb(33,123,150);
+    color: #fff;
+    padding: 2px 3px;
+    font-size:1em;
+}
+
+textarea{
+    background-color:rgb(250, 253, 252);
+}
+
+label{
+    font-size: 0.98em;
+    font-weight: 570;
+    color: rgb(62, 68, 70);
+}
+
+
+
+
+.help-block{
+    font-style: italic;
+}
+
+
+
+.bordure{
+    border:1px rgba(94, 118, 133, 0.774) solid;
+    }
+    
+    .lbltext{
+        color:rgb(23, 65, 83);
+        font-weight:500;
+    }
+    
+    .row {
+        margin-bottom:10px;
+     
+    }
+
+    .defendant-card {
+        display:block;
+      }
+      
+      h4{
+        color:rgb(23, 65, 83);
+        text-align: center; 
+         }
+
+      .notebook{
+        background-color:rgba(255, 255, 255, 0.87);
+        margin-left:10px;
+        border-left:2px rgb(23, 65, 83) solid;
+        min-height:300px;
+        padding-left:5px;
+        padding-right:5px;
+        padding-top:15px;
+        margin-top:11vh;
+      }
+
+      mat-divider{
+        background-color: rgb(23, 65, 83);
+        margin-top:10px;
+        margin-bottom: 10px;
+  
+      }
+
+      mat-list-item{
+        color: rgb(23, 65, 83);
+        padding-top:0px;
+        padding-bottom:0px;
+      }
+
+      mat-line, .mat-list-icon{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: rgb(255, 255, 183);
+        background-color:rgb(23, 65, 83);
+        }
+        .line{
+            color: rgb(23, 65, 83);
+              }

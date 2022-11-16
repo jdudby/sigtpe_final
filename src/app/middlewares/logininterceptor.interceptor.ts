@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class Logininterceptor implements HttpInterceptor {
   
-  public user= new User ("","","","","","","1900-01-01", []);
+  public user= new User ();
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -22,11 +22,10 @@ export class Logininterceptor implements HttpInterceptor {
   
     this.user = JSON.parse(<string>sessionStorage.getItem('sigtpeaccess'));
 
-   if(this.user && this.user.password!="" && this.user.email!=""){
+   if(this.user && this.user.password!="" && this.user.email){
       httpHeaders = httpHeaders.append('Authorization', 'Basic ' + btoa(this.user.email + ':' + this.user.password));
     }
     httpHeaders = httpHeaders.append('X-Requested-With', 'XMLHttpRequest');
-    httpHeaders = httpHeaders.append('Accept', 'application/json');
 
     const xhr = req.clone({
       headers: httpHeaders

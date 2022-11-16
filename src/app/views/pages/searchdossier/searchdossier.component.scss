@@ -1,0 +1,39 @@
+fieldset{
+    border: 1px rgb(33,123,150) solid;
+    padding: 10px 10px 30px 10px;
+  
+ 
+}
+
+legend{
+    background-color:rgb(33,123,150);
+    color: #fff;
+    padding: 2px 3px;
+    font-size:1em;
+}
+
+.td_modif
+{
+    text-align: center;
+}
+
+.td_modif:hover{
+cursor:pointer;
+background-color:rgb(60, 95, 105);
+color:#fff;
+}
+
+fa-icon{
+    color:rgb(60, 95, 105);
+    font-weight: bold; 
+    font-size:large;
+}
+
+.help-block{
+    font-style:italic;
+}
+
+
+
+
+

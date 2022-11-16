@@ -19,7 +19,7 @@ export const navItems: INavData[] = [
     children: [
       
       {
-        name: 'Vérifier',
+        name: 'Rechercher un enfant',
         url: "/searchdefendant",
       },
     ]
@@ -33,30 +33,29 @@ export const navItems: INavData[] = [
     name: 'Manipuler dossiers',
     iconComponent: { name: 'cil-puzzle' },
     children: [
+
+      {
+        name: 'Rechercher dossier',
+        url: '/searchdossier'
+      },
       
       {
         name: 'Nouveau dossier',
-        url: '/base/collapse'
+        url: '/newcase'
       },
+
+     
       {
-        name: 'Consultation dossier',
-        url: '/base/list-group'
-      },
-      {
-        name: 'Consultation dossier',
-        url: '/base/spinners'
-      },
-      {
-        name: 'Nouvelle audience',
-        url: '/base/tables'
+        name: 'Liste des  audiences tenues',
+        url: '/audiencelist'
       },
       {
         name: 'Dossiers en traitement',
-        url: '/base/tabs'
+        url: '/processingcaselist'
       },
       {
         name: 'Dossiers en attente',
-        url: '/base/tooltips'
+        url: '/waitingcaselist'
       }
     ]
   },
@@ -76,7 +75,7 @@ export const navItems: INavData[] = [
       },
       {
         name: 'Gestion des utilisateurs',
-        url: '/register'
+        url: '/usersmanagement'
       }
     ]
   },

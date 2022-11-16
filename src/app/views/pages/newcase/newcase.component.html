@@ -1,0 +1,139 @@
+<div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+        <h2> Enregistrer un nouveau dossier<i class="icon-book"></i> </h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+  
+  
+            <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <strong>Saisie des informations d'identification et des faits reprochés</strong>
+                    </div>
+                    <div class="card-body">
+                      <form action="" method="post"  class="form-horizontal">
+
+                        <div class="form-row row">
+
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="numerodossier">Numéro dossier </label>
+                            <div class="col-md-9">
+                              <input type="text" [(ngModel)]="this.dossier.numerodossier" id="numerodossier" name="numerodossier" class="form-control"
+                                placeholder="Numéro du dossier au greffe TPE">
+                              <span class="help-block">(*) Numéro assigné au dossier au greffe du TPE</span>
+                            </div>
+                          </div>
+
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="statutdetention">Statut Dossier : </label>
+                            <div class="col-md-9">
+                              <select id="statutdetention" [(ngModel)]="this.dossier.statut" name="statutdetention" class="form-control">
+                                <option value="Non Jugé">Enregistré-Non Instruit</option>
+  
+                              </select>
+                              <span class="help-block">(*)</span>
+                            </div>
+                          </div>
+
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="juge">Juge en charge</label>
+                            <div class="col-md-9">
+                              <select   class="form-control"  [(ngModel)]="this.juge.id"  [ngModelOptions]="{standalone: true}">
+                                <option *ngFor="let juge of this.jugeList" [value]="juge.id">{{juge.firstname}} {{juge.lastname}}</option>
+                                
+                            </select>
+                            </div>
+                          </div>
+  
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="commissaire">Commissaire en charge</label>
+                            <div class="col-md-9">
+                              <select   class="form-control"  name="commissaire" [(ngModel)]="this.commissaire.id"  [ngModelOptions]="{standalone: true}">
+                                <option *ngFor="let commissaire of this.commissaireList" [value]="commissaire.id">{{commissaire.firstname}} {{commissaire.lastname}}</option>
+                                
+                            </select>
+                            </div>
+                          </div>
+  
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="juridiction">Juridiction</label>
+                            <div class="col-md-9">
+                              <select   class="form-control" name="juridiction" [(ngModel)]="this.dossier.juridiction.id"  [ngModelOptions]="{standalone: true}">
+                                <option name="juridiction" *ngFor="let juridiction of juridictionList" [value]="juridiction.id">{{juridiction?.juridiction}}</option>
+                              </select>
+                              <span class="help-block">(*)</span>
+                            </div>
+                          </div>                  
+
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="nomPlaignant">Nom plaignant  </label>
+                            <div class="col-md-9">
+                              <input type="text" [(ngModel)]="this.dossier.nomplaignant" id="nomPlaignant" name="nomPlaignant" class="form-control"
+                                placeholder="nom des plaignants">
+                              <span class="help-block">(*) Nom du plaignant ou de la partie plaignante</span>
+                            </div>
+                          </div>
+  
+                          <div class="form-group row col-md-6">
+                            <label class="col-md-3 col-form-label" for="temoins">Nom des témoins  </label>
+                            <div class="col-md-9">
+                              <input type="text" [(ngModel)]="this.dossier.temoins" id="temoins" name="temoins" class="form-control"
+                                placeholder="temoins">
+                              <span class="help-block">Veuiller saisir le nom des témoins séparés par un point-virgule (;)</span>
+                            </div>
+                          </div>
+  
+                          <div class="form-group row col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <label class="col-md-3 col-form-label" for="resumedossier">Résumé dossier</label>
+                            <div class="col-md-9">
+                              <input  [(ngModel)]="this.dossier.resumedossier" name="resumedossier" rows="5" class="form-control">
+                              <span class="help-block">Veuiller saisir le résumé du dossier</span>
+  
+                            </div>
+                            </div> 
+
+                            <div class="form-group row col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                              <label class="col-md-3 col-form-label" for="resumedossier">Représentant de la défense </label>
+                              <div class="col-md-9">
+                                <input  [(ngModel)]="this.dossier.defense" name="defense" rows="5" class="form-control">
+                                <span class="help-block">Veuiller spécifier les noms des représentant de la défense séparés par un point-virgule (;) </span>
+    
+                              </div>
+                              </div> 
+                        </div>
+                      </form>
+
+                      <div class="card-footer row">
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-7"></div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+                        <button type="submit" class="p-2 mt-1 col-xs-12 col-sm-12 col-md-4 btn btn-sm btn-outline-success"
+                            (click)="submitData()"><i class="fa fa-dot-circle-o"></i> Valider</button>
+                        <button type="reset"
+                            class="p-2 mt-1 col-xs-12 col-sm-12 col-md-4  offset-md-1  btn btn-sm btn-outline-danger"
+                            (click)="reset()"><i class="fa fa-ban"></i> Réinitialiser</button>
+                    </div>
+                    </div>  
+                    </div>
+                   
+                    
+                  </div>
+                  </div>
+  
+                </div>
+  
+  
+              </div>
+
+              
+  
+            </div>
+            
+          </div>
+        </div>
+    </div>
+

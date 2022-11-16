@@ -1,0 +1,75 @@
+fieldset{
+    border: 1px rgb(33,123,150) solid;
+    padding: 10px 10px 30px 10px;
+  
+ 
+}
+
+legend{
+    background-color:rgb(33,123,150);
+    color: #fff;
+    padding: 2px 3px;
+    font-size:1em;
+    color: rgb(214, 213, 213)
+}
+
+hr{
+    color:black;
+}
+
+  mat-expansion-panel{
+      margin-top:15px;
+      margin-bottom:15px;
+      border:1px gray solid;
+      background-color:rgb(236, 245, 244);
+      color:rgb(23, 65, 83);
+      
+  }
+
+  h3{
+      font-weight: 550;
+      color:rgb(236, 245, 244);
+  }
+
+  mat-panel-title, mat-panel-description{
+    color:rgb(23, 65, 83);
+  }
+
+  mat-expansion-panel-header{
+    background-color: gray solid;
+  } 
+
+  .bordure{
+    border:1px rgba(94, 118, 133, 0.774) solid;
+    }
+    
+    .lbltext{
+        color:rgb(23, 65, 83);
+        font-weight:500;
+    }
+    
+    .row {
+        margin-bottom:10px;
+     
+    }
+
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .overlay{
+        height:100vh;
+        width:100%;
+        background-color:rgba(0, 0, 0, 0.286);
+        z-index:    10;
+        top:        0; 
+        left:       0; 
+        position:   fixed;
+      }
+
+     

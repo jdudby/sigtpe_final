@@ -1,0 +1,146 @@
+<div class="animated fadeIn row">
+  <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-9" >
+    <div class="card-header">
+      <h2>Dossier no {{this.idDossier}}<i class="icon-book"></i> </h2>
+    </div>
+    <div class="card-body">
+       <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+          <form>
+            <fieldset>
+              <legend>Mise à jour du dossier</legend>
+              <div class="container-fluid">
+              <div class="row">
+
+                <div class="form-group col-md-12 col-lg-6 form-left row">
+                  <label class="col-form-label" for="personneAuditionee">Personne auditionnée </label>
+                  <div class="col-lg-11">
+                    <input class="form-control" [(ngModel)]="this.audience.personneAuditionnee"  name="personneAuditionee">
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-6 form-right row">
+                  <label class="col-form-label" for="lienAvecAccuse">Relation avec le dossier </label>
+                  <div class="col-lg-11">
+                    <select class="form-control" [(ngModel)]="this.audience.lienAvecAccuse"  name="lienAvecAccuse">
+                      <option value="Temoin des faits">Temoin des faits</option>
+                      <option value="Plaignant">Plaignant</option>
+                      <option value="Complice">Complice</option>
+                      <option value="Parents">Parents</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-12 col-lg-6 form-left row">
+
+                  <label class="col-form-label" for="temoins">Témoins présents </label>
+                  <div class="col-lg-11">
+                    <input class="form-control" [(ngModel)]="this.audience.temoins"  name="temoins">
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-6 row form-right">
+                  <label class="col-form-label" for="assistanceLegale">Assistance légale présente </label>
+                  <div class="col-lg-11">
+                    <input class="form-control" [(ngModel)]="this.audience.assistanceLegale"  name="assistanceLegale">
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-6 row form-left">
+                  <label class="col-form-label" for="tuteurLegal">Nom du tuteur légal présent</label>
+                  <div class="col-lg-11">
+                    <input class="form-control" [(ngModel)]="this.audience.tuteurLegal"  name="tuteurLegal">
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-6 row form-right">
+                  
+                </div>
+                <mat-divider></mat-divider>
+
+                <div class="form-group col-md-12 col-lg-6 form-left row">
+                  <label class="col-form-label" for="juge">Juge siégeant </label>
+                  <div class="col-lg-11">
+                    <select   class="form-control" [(ngModel)]="this.juge.id"  name="juge" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let juge2 of this.jugeList" [value]="juge2.id">{{juge2.firstname}} {{juge2.lastname}}</option>
+                      </select>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-6 form-right row">
+                  <label class="col-form-label" for="commissaire">Commissaire siégeant </label>
+                  <div class="col-lg-11">
+                    <select class="form-control" [(ngModel)]="this.commissaire.id"  name="commissaire" [ngModelOptions]="{standalone: true}">
+                      <option  *ngFor="let commissaire2 of this.commissaireList" [value]="commissaire2.id">{{commissaire2.firstname}} {{commissaire2.lastname}}</option>
+                      </select>
+                  </div>
+                </div>
+
+               
+                
+                <div class="form-group col-md-12 col-lg-6 row form-left">
+                  <label class="col-form-label" for="prochaineEtape">Prochaine étape</label>
+                  <div class="col-lg-11">
+                    <input class="form-control" [(ngModel)]="this.audience.prochaineEtape"  name="prochaineEtape">
+                    <div class="help-block"><p>Prochaine étape de l'instruction</p></div>
+                  </div>
+                </div>
+               
+
+                <div class="form-group col-md-12 col-lg-6 row form-right">
+                  <label class="col-form-label" for="dateProchaineEtape">Date prochaine étape</label>
+                  <div class="col-lg-11">
+                    <input type="date" class="form-control" [(ngModel)]="this.audience.dateProchaineEtape"  name="dateProchaineEtape">
+                    <div class="help-block"><p>Choisir la date prochaine étape</p></div>
+
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-7 row form-left">
+                  <label class="col-form-label" for="chargeRetenu">Charges retenues </label>
+                  <div class="col-lg-11">
+                    <textarea class="form-control" [(ngModel)]="this.audience.chargesRetenues"  name="chargeRetenu" rows="5" placeholder="Veuillez saisir les charges retenues, suivies de la référence légale entre parenthèses ()">
+
+                      </textarea>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12 col-lg-6 form-right row">
+                  <label class="col-form-label" for="statut">Nouveau statut dossier </label>
+                  <div class="col-lg-11">
+                    <select class="form-control" [(ngModel)]="this.newStatutDossier"  name="newStatutDossier">
+                      <option value="en instruction">En cours d'instruction</option>
+                      <option value="Jugement">En instance de jugement</option>
+                      </select>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+              </fieldset>
+              </form>
+              </div>
+
+
+    </div>
+
+
+<div class="card-footer">
+
+<button type="submit" class="mt-1 offset-md-6 col-xs-12 col-sm-12 col-md-2 btn btn-sm btn-outline-success" (click)="submitdata()"><i class="fa fa-dot-circle-o"></i> Valider</button>
+<button type="reset" class="mt-1 col-xs-12 col-sm-12 col-md-2  offset-md-1 btn btn-sm btn-outline-warning" (click)="reset()"><i class="fa fa-ban"></i> Réinitialiser</button>
+</div>
+</div>
+
+  <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-3" >
+  <div class="notebook">
+    <mat-list>
+      <div mat-subheader> <h4>Audiences déjà tenues</h4></div>
+      <mat-list-item *ngFor="let au of this.audiences">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line> <a routerLink="/audience/{{au.id}}/{{this.idDossier}}">Audience de {{au.personneAuditionnee}}</a></div>
+        <div mat-line> Date audience : </div>
+      </mat-list-item>
+    </mat-list>
+    </div>
+  </div>
+  </div>

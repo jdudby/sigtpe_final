@@ -1,0 +1,449 @@
+<div class="overlay" *ngIf="this.resLoaded==false">
+  <div class="center">
+<mat-progress-spinner mode="indeterminate" diameter=50 color="accent" >
+</mat-progress-spinner>
+</div>
+</div>
+
+<div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+        <h3>Dossier no {{this.dossier.numerodossier}}<i class="icon-book"></i> </h3>
+      </div>
+      <div class="card-body">
+
+        <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+          <form style="background-color:#ecf5f4;padding:10px 10px;margin-bottom: 10px;">
+            <fieldset>
+              <legend><h3>Contenu du dossier</h3> </legend>
+
+              <div class="container-fluid">
+
+
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <p class="lbltext">Numéro de dossier:</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+            <p>{{dossier.numerodossier}}</p>
+          </div>
+         
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <p class="lbltext">Juridiction :</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+            <p>{{dossier.juridiction.juridiction}}</p>
+          </div>
+         </div>
+
+         <div class="row">
+
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <p class="lbltext">Statut dossier:</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+            <p>{{dossier.statut}}</p>
+          </div>
+
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <p class="lbltext">Resumé dossier :</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+            <p>{{dossier.resumedossier}}</p>
+          </div>
+
+         </div>
+
+
+         <div class="row">
+
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <p class="lbltext">Juge en charge :</p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+            <div  *ngFor="let user of dossier.users">
+            <div *ngFor="let role of user.roles">
+            <div *ngIf="role.rolename=='JUGE'">
+              <p>
+              {{user.firstname}}
+              {{user.lastname}}
+            </p>
+            </div>
+          </div>
+          </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <p class="lbltext">Commissaire en charge : </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+            <div  *ngFor="let user of dossier.users">
+            <div *ngFor="let role of user.roles">
+            <div *ngIf="role.rolename=='COMMISSAIRE'">
+              <p>
+              {{user.firstname}}
+              {{user.lastname}}
+            </p>
+            </div>
+          </div>
+          </div>
+          </div>
+         </div>
+
+        </div>
+        </fieldset>
+        </form>
+        </div>
+       
+
+   
+        
+        <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+          <form style="padding:10px 10px;margin-bottom: 10px;">
+            <fieldset>
+              <legend><h3>Liste des enfants impliqués dans le dossier</h3> </legend>
+              <mat-accordion>
+              <mat-expansion-panel hideToggle *ngFor="let casier of this.casierList">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{casier.defendant.prenom}}   {{casier.defendant.nom}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Les faits reprochés sont {{casier.faitsReproches}}. Le dossier est en statut {{this.dossier.statut}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+
+              <div class="container-fluid" >
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Nom :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.nom}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Prénom :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.prenom}}</p>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Date de naissance :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.datenaissance  | date: 'dd-MM-yyyy'}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Sexe :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.sexe}}</p>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Lieu de naissance:</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.lieu_naissance.ville}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Environnement d\'évolution:</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.environnement}}</p>
+                  </div>
+  
+                </div>
+  
+  
+                <div class="row">
+  
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Personne de contact :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.nomperscontact}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Code enregistrement greffe :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.telephoneperscontact}}</p>
+                  </div>
+                </div>
+  
+  
+                <div class="row">
+  
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Tél personne de contact :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.telephoneperscontact}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Relation avec personne de contact :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.perscontactlienaccuse}}</p>
+                  </div>
+                </div>
+  
+                <div class="row">
+  
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">État physique :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.etatphysique}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">État mental :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.defendant.evaluationmental}}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Lieu de détention :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.lieudetention}}</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3">
+                    <p class="lbltext">Date d'arrestation :</p>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                    <p>{{casier.datedetention  | date: 'dd-MM-yyyy'}}</p>
+                  </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-3">
+                      <p class="lbltext">Faits reprochés:</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                      <p>{{casier.faitsReproches}}</p>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-3">
+                      <p class="lbltext">Bureau de la défense : </p>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                      <p>{{casier.assistancelegale}}</p>
+                    </div>
+
+                  </div>
+                <hr />
+               </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+           </fieldset>
+          </form>
+        </div>
+  
+        <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+              <legend><h3>Contenu du dossier</h3></legend>
+              <div style="display: flex; justify-content: flex-end">
+                <div> <button class="cil-pencil btn btn-outline-info" (click)="editCase()" style="font-size:12px;color: rgb(83, 14, 243);margin-bottom:2px;">
+                    Éditer dossier </button></div>
+              </div>
+        </div>
+  
+        <!--------------###################################################################################-->
+        <h2>Détails des audiences déjà tenues</h2>
+  
+  
+        <div>
+          <button mat-button (click)="accordion.openAll()">Déplier toutes les audiences</button>
+          <button mat-button (click)="accordion.closeAll()">Plier tout</button>
+        </div>
+        <mat-accordion multi>
+          <mat-expansion-panel *ngFor="let audience of this.audiences">
+  
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p class="cil-plus" style="font-size:1.5em; font-weight:bold; color:gray;"> </p>
+                <p>ID audience : {{audience?.id}}</p>
+                <p>ID Dossier : </p>
+              </mat-panel-title>
+  
+              <mat-panel-description>
+                <p style="color:black;">Nom juge en Charge : </p>
+              </mat-panel-description>
+  
+              <div style="display: flex; justify-content: flex-end">
+                <div> <button class="cil-pencil btn btn-outline-info" (click)="editAudience(audience.id)" style="margin-bottom:2px;font-size:12px;color: rgb(83, 14, 243);">
+                    Éditer audience </button></div>
+              </div>
+  
+            </mat-expansion-panel-header>
+            <hr />
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>Nom de la personne audionnée : {{audience.personneAuditionnee}}</p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>Nom de l'assistant légal/avocat : {{audience?.assistanceLegale}}</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>
+                  Nom des témoins présents : {{audience.temoins}}
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>Nom tuteur légal présent : {{audience.tuteurLegal}}</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>
+                  Charges retenues : {{audience.chargesRetenues}}
+                </p>
+              </div>
+  
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>Décisions : {{audience.decision}}</p>
+              </div>
+            </div>
+  
+  
+  
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>
+                  Condammations aux dommages et intérêts : {{audience.dommageInterets}}
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>Montant des dommages et intérêts : {{audience.montantDommages}}</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>
+                  Condamnation peine de prison : <span *ngIf="audience.emprisonnement==true then prison else noprison">
+                  </span>
+                  <ng-template #prison><span>Oui</span></ng-template>
+                  <ng-template #noprison><span>Non</span></ng-template>
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p>Durée de peine : {{audience.dureeEmprisonnement}}</p>
+              </div>
+            </div>
+          </mat-expansion-panel>
+  
+        </mat-accordion>
+  
+  
+        <hr/>
+        <div class="row">
+          <div class="col-xs-6  col-sm-6 col-md-6 col-lg-6" style="border-right:1px gray outset">
+  
+            <h4>Exemple de fichiers attachés</h4>
+            <p style="font-style: italic;">Réquisitoires d'informer</p>
+            <p>Photos de pièces à conviction</p>
+            <p>Dispositifs du jugement</p>
+            <p>Demande d'interjection d'appel etc...</p>
+  
+          </div>
+  
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  
+            <h4>Joindre un fichier</h4>
+           
+              <form  style="padding-left:5px;">
+
+                <input type="file" name="multiplefiles" (change)="onFileSelected($event)" />
+                <div class="row  mt-2 mb-2 ">
+                  <div class="row">
+                <label for="description">Description : </label>
+               <div  class="col-xs-6 col-sm-6 col-md-6">
+                <select name="description" [(ngModel)]="this.description">
+                  <option value="réquisitoire">Réquisitoires d'informer</option>
+                  <option value="Pièce à conviction">Photos de pièces à conviction</option>
+                  <option value="jugement">Dispositifs du jugement</option>
+                  <option value= "demande appel">Demande d'interjection d'appel etc...</option>
+                </select>
+              </div>
+
+              <div  class="col-xs-6 col-sm-4 col-md-4">
+                <input type="submit" value="Télécharger" (click)="onSubmit()"  class="offset-md-4"/>
+                </div>
+              </div>
+              </div>
+              </form>
+             
+          </div>
+        </div>
+  
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+          <h2>Liste de pièces déjà jointes au dossier</h2>
+          <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" class="table table-bordered table-striped table-sm" id="papa" name="papa">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nom document</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let document of this.documents">
+                <td>{{document.id}}</td>
+                <td>{{document.name}}</td>
+                <td >{{document.description}}</td>
+               <td style="text-align:center"><button type="button" class="btn btn-info"  (click)="download(document.name)">Télécharger</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+  
+        </div>
+  
+  
+  
+  
+        <hr>
+  
+        <div class="row" style="background-color:#dee7e7;padding-top:15px;padding-bottom:15px;">
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <button (click)="juger()">Rendre jugement</button>
+          </div>
+  
+  
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <button (click)="gestion()">Créer audience</button>
+          </div>
+  
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <select *ngFor="let user of this.userList" ngModel="this.juge.id" name="juge">
+              <option  [value]="user.id">{{user.firstname}} {{user.lastname}}</option>
+            </select>
+            <button (click)="assigner()">Assigner dossier</button>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+  
+    </div>
+  
+  
+  
+  </div>
+  

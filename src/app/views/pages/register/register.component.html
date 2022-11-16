@@ -1,38 +1,100 @@
-<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+<div class="bg-light d-flex flex-row align-items-center">
   <c-container>
     <c-row class="justify-content-center">
-      <c-col lg="7" md="9" xl="6">
-        <c-card class="mx-4">
+      <c-col md="12" lg="10"  xl="10">
+        <c-card class="mx-8">
           <c-card-body class="p-4">
             <form cForm>
-              <h1>Register</h1>
-              <p class="text-medium-emphasis">Create your account</p>
+              <h1>Création des utilisateurs</h1>
+              <p class="text-medium-emphasis">Créer un utilisateur</p>
+              <div class="row">
+                
+              <div class=" col-lg-6 form-group">
+                <c-input-group class="mb-3">
+                <span cInputGroupText>@</span>
+                <input autoComplete="email" [(ngModel)]="this.user.email" cFormControl placeholder="Email" name="email"/>
+                </c-input-group>
+               </div>
+                <div class=" col-lg-6 form-group">
+                  <c-input-group class="mb-3">
+                    <span cInputGroupText>
+                      <svg cIcon name="cilUser"></svg>
+                    </span>
+                    <input autoComplete="name" [(ngModel)]="this.user.username" name="username" cFormControl placeholder="Username" />
+                  </c-input-group>
+                   </div>
+
+
+                   <div class=" col-lg-6 form-group">
+                    <c-input-group class="mb-3">
+                     <span cInputGroupText>
+                       <svg cIcon name="cilLockLocked"></svg>
+                     </span>
+                     <input autoComplete="new-password" [(ngModel)]="this.user.password"  cFormControl placeholder="Mot de passe" type="password" name="password"/>
+                     </c-input-group>
+                    </div>
+     
+                     <div class=" col-lg-6 form-group">
+                     <c-input-group class="mb-4">
+                     <span cInputGroupText>
+                       <svg cIcon name="cilLockLocked"></svg>
+                     </span>
+                     <input autoComplete="new-password" [(ngModel)]="this.confirmedpassword" cFormControl placeholder="Taper à nouveau le mot de passe" type="password" name="newpassword" />
+                    </c-input-group>
+                    </div>
+         
+
+                <div class=" col-lg-6 form-group">
               <c-input-group class="mb-3">
                 <span cInputGroupText>
                   <svg cIcon name="cilUser"></svg>
                 </span>
-                <input autoComplete="name" cFormControl placeholder="Username" />
+                <input autoComplete="name" [(ngModel)]="this.user.firstname" name="firstname" cFormControl placeholder="Prénom" />
               </c-input-group>
-              <c-input-group class="mb-3">
-                <span cInputGroupText>@</span>
-                <input autoComplete="email" cFormControl placeholder="Email" />
-              </c-input-group>
-              <c-input-group class="mb-3">
+               </div>
+             <div class=" col-lg-6 form-group">
+              <c-input-group class="mb-3 col-lg-6">
                 <span cInputGroupText>
-                  <svg cIcon name="cilLockLocked"></svg>
+                  <svg cIcon name="cilUser"></svg>
                 </span>
-                <input autoComplete="new-password" cFormControl placeholder="Password" type="password" />
+                <input autoComplete="name" [(ngModel)]="this.user.lastname"  name="lastname" cFormControl placeholder="Nom" />
               </c-input-group>
-              <c-input-group class="mb-4">
-                <span cInputGroupText>
-                  <svg cIcon name="cilLockLocked"></svg>
-                </span>
-                <input autoComplete="new-password" cFormControl placeholder="Repeat password" type="password" />
-              </c-input-group>
-              <div class="d-grid">
-                <button cButton color="success">Create Account</button>
               </div>
-            </form>
+
+              <div class=" col-lg-6 form-group">
+                <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <select [(ngModel)]="this.user.sexe" style="min-width:250px;"  placeholder="Sexe" cFormControl name="sexe">
+                  <option value="masculin">Homme</option>
+                  <option value="féminin">Femme</option>
+                  </select>
+                </c-input-group>
+                </div>
+
+              <div class=" col-lg-6 form-group">
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="calendar"></svg>
+                </span>
+                <input type="date" [(ngModel)]="this.user.datenaissance" name="datenaissance" cFormControl placeholder="Date de naissance" />
+              </c-input-group>
+              </div>
+              <div class=" col-lg-6 form-group">
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input autoComplete="name" [(ngModel)]="this.user.phone"  cFormControl placeholder="Téléphone" name="phone" />
+               </c-input-group>
+               </div>
+
+              <div class="d-grid">
+                <button cButton color="success" (click)="soumettre()">Créer le compte</button>
+              </div>
+         </div>
+         </form>
           </c-card-body>
         </c-card>
       </c-col>

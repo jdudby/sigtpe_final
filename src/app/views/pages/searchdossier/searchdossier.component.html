@@ -1,0 +1,105 @@
+<div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+       <h3 style="font-weight:500; color:darkslategray">Rechercher un dossier dans la base de données<i class="icon-book"></i> </h3> 
+      </div>
+      <div class="card-body">
+
+          <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+            <form>
+                <fieldset>
+                    <legend>filtres de recherche</legend>
+    
+        <div class="form-row row" style="background-color: azure;margin-left:1px;">
+
+            <div class="form-group mb-3 col-xs-12 col-sm-12 col-md-6">
+                <input type="text" class="form-control" placeholder="Numéro du dossier" aria-label="Numéro du dossier" aria-describedby="button-addon2"  [(ngModel)]="numerodossier"  [ngModelOptions]="{standalone: true}">
+              </div>
+
+              <div class="form-group mb-3 col-xs-12 col-sm-12 col-md-6">
+                <input  type="text" class="form-control" placeholder="Nom plaignant " aria-label="nom plaignant" aria-describedby="button-addon2" [(ngModel)]="nomplaignant"  [ngModelOptions]="{standalone: true}">
+              </div>
+
+
+
+                 <div class="form-group mb-3  col-xs-12 col-sm-12 col-md-6">
+                  <select class="form-control"  [(ngModel)]="juridiction.id"   [ngModelOptions]="{standalone: true}">
+                  <option *ngFor="let juridiction of this.juridictionList"
+                      [value]="juridiction.id">{{juridiction.juridiction}}
+                  </option>
+  
+              </select>   
+              <span class="help-block">Choisir la juridiction en question </span>
+            </div>
+
+        </div>
+     </fieldset>
+            </form>
+        </div>
+        <div class="card-footer row">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-7"></div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+            <button type="submit" class="p-2 mt-1 col-xs-12 col-sm-12 col-md-4 btn btn-sm btn-outline-success"
+                (click)="checkdossier()"><i class="fa fa-dot-circle-o"></i> Valider</button>
+            <button type="reset"
+                class="p-2 mt-1 col-xs-12 col-sm-12 col-md-4  offset-md-1  btn btn-sm btn-outline-danger"
+                (click)="reset()"><i class="fa fa-ban"></i> Réinitialiser</button>
+        </div>
+        </div>  
+        </div>
+
+            <h5 class="mt-5">Listing des résultats...</h5>
+            <hr/>
+                     
+            
+              
+            <table  datatable [dtOptions]="this.dtOptions" [dtTrigger]="this.dtTrigger" class="row-border hover" class="table table-bordered table-striped table-sm"  id="child" name="child">
+                <thead>
+                  <tr>
+                    <th>Numéro dossier</th>
+                    <th>nom plaignant</th>
+                    <th>Avocat de la défense</th>
+                    <th>Commisaire</th>
+                    <th>Juge</th>
+                    <th>Statut dossier</th>
+                    <th>Éditer infos</th>
+                    <th>Voir dossier</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let dossier of this.dossierList" >
+                    <td>{{dossier.numerodossier}}</td>
+                    <td >{{dossier.nomplaignant}}</td>
+                    <td >{{dossier.defense}}</td>
+                    <td>
+                    <div *ngFor="let user of dossier.users">
+                        <div *ngFor="let role of user.roles">
+                     <div *ngIf="role.rolename=='COMMISSAIRE'">{{user.firstname }} {{user.lastname}}</div>
+                        </div>
+                    </div> 
+                    </td>
+                    <td>
+                  <div *ngFor="let user of dossier.users">
+                    <div *ngFor="let role of user.roles">
+                 <div *ngIf="role.rolename=='JUGE'">{{user.firstname }} {{user.lastname}}</div>
+                    </div>
+                </div> 
+                    </td>
+                    <td >{{dossier.statut}}</td>
+                    <td class="td_modif"   [attr.id]="dossier.id" (click)="editdossier(dossier.id)" ><p style="display:inline-block;text-align:left;"> <fa-icon [icon]="faFilePen"></fa-icon></p></td>
+                    <td class="td_modif"   [attr.id]="dossier.id" (click)="gestion(dossier.id)" ><p style="display:inline-block;text-align:left;"> <fa-icon [icon]="faEye"></fa-icon> </p></td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+
+        </div>
+ 
+    </div>
+    
+
+  
+
+
+  

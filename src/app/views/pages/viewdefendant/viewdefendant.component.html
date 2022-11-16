@@ -1,0 +1,249 @@
+<div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header">
+       <h5>Profil judiciaire de l'enfant<i class="icon-book"></i> </h5> 
+      </div>
+      <div class="card-body">
+
+          <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+            <form>
+                <fieldset>
+                    <legend>Profil de l'enfant</legend>
+    <div class="container-fluid">           
+        <div class="row" >
+           <div class="col-xs-6 col-sm-6 col-md-3"><p class="lbltext">Nom :</p></div>
+           <div class="col-xs-6 col-sm-6 col-md-3 bordure"><p >{{this.child.nom}}</p></div>
+           <div class="col-xs-6 col-sm-6 col-md-3"><p class="lbltext">Prénom :</p></div>
+           <div class="col-xs-6 col-sm-6 col-md-3 bordure"><p>{{this.child.prenom}}</p></div>
+			  </div>
+
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3"><p class="lbltext">Date de naissance :</p></div>
+                <div class="col-xs-6 col-sm-6 col-md-3 bordure"><p>{{this.child.datenaissance | date: 'dd-MM-yyyy'}}</p></div>
+                <div class="col-xs-6 col-sm-6 col-md-3"><p class="lbltext">Sexe :</p></div>
+                <div class="col-xs-6 col-sm-6 col-md-3 bordure"><p>{{this.child.sexe}}</p></div>
+                   </div>
+
+                   <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-3"><p class="lbltext">Lieu de naissance:</p></div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 bordure"><p>{{this.child.lieu_naissance.ville}}</p></div>
+                    <div class="col-xs-6 col-sm-6 col-md-3"><p class="lbltext">Environnement d'évolution:</p></div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 bordure"><p>{{this.child.environnement}}</p></div>
+
+                    </div>
+
+                    
+
+
+                    <div class="row">
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Tél personne de contact  :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p>{{this.child.telephoneperscontact}}</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Relation avec personne de contact :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p>{{this.child.perscontactlienaccuse}}</p>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+      
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">État physique  :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p>{{this.child.etatphysique}}</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">État mental :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p>{{this.child.evaluationmental}}</p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+      
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Niveau d'étude  :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p>{{this.child.niveauetude}}</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Enfant scolarisé ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child.estscolarise==true;then scolarise else nonscolarise"></p>
+                        <ng-template #scolarise><p>Oui</p></ng-template>
+                        <ng-template #nonscolarise><p>Non</p></ng-template>
+                       
+                      </div>
+                     
+                     
+                    
+                    </div>
+
+                    
+                    <div class="row">
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">L'enfant travaille-t-il ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child.esttravailleurjournalier==true;then journalier else nonjournalier"></p>
+                      <ng-template #journalier><p>Oui</p></ng-template>
+                      <ng-template #nonjournalier><p>Non</p></ng-template>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Enfant vit-il de l'assistance des rues ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child?.vitdanslesrues==true;then estDansLesRues else nonestDansLesRues"></p>
+                        <ng-template #estDansLesRues><p>Oui</p></ng-template>
+                        <ng-template #nonestDansLesRues><p>Non</p></ng-template>
+                      </div>
+                  
+                    </div>
+
+                                        
+                    <div class="row">
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">enfant est-t-il en domesticité ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child?.vitchezsesparents==true;then  estDomestique else nonestDomestique"></p>
+                        <ng-template #estDomestique><p>Oui</p></ng-template>
+                        <ng-template #nonestDomestique><p>Non</p></ng-template>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Est-il en contact avec parents biologiques ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child.estencontactavecparentbiologique==true;then parentBiologique else nonparentBiologique"></p>
+                        <ng-template #parentBiologique><p>Oui</p></ng-template>
+                         <ng-template #nonparentBiologique><p>Non</p></ng-template>
+                      </div>
+
+                    
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">enfant est-t-il adopté ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child.estadopte==true;then adopte else nonadopte"></p>
+                        <ng-template #adopte><p>Oui</p></ng-template>
+                        <ng-template #nonadopte><p>Non</p></ng-template>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 col-md-3">
+                        <p class="lbltext">Est-il en contact avec parents élargis ? :</p>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-3 bordure">
+                        <p *ngIf="this.child.estencontactavecparentelargi==true;then parentElargie else nonparentElargie"></p>
+                        <ng-template #parentElargie><p>Oui</p></ng-template>
+                        <ng-template #nonparentElargie><p>Non</p></ng-template>
+                      </div>
+
+                    
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </form>
+        </div>
+
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+              
+                  <fieldset>
+                      <legend>Historique des dossiers impliquant l'enfant</legend>
+                      <div class="mb-2 row pt-4">
+                        <div class=" col-sm-6 offset-sm-2">
+                          <input type="text" class="form-control" [(ngModel)]="this.numerodossier_defendant" name="this.numerodossier_defendant" [ngModelOptions]="{standalone:true}">
+                          <p class="help-block">Veuiller saisir un numéro de dossier pour y attacher le profil de l'enfant</p>
+                        </div>
+                        <div class="col-sm-4">
+                        <button type="submit" class="btn btn-success btn-md mb-4" (click)="ajouterDossier()" >Attacher au dossier</button>
+                        </div>
+                      </div>
+                      <hr style="margin-bottom:10px;">
+
+
+                      <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" class="table table-bordered table-striped table-sm"  id="child" name="child">
+                        <thead>
+                          <tr>
+                            <th>Code dossier</th>
+                            <th>Faits reprochés</th>
+                            <th>Juge</th>
+                            <th>Commissaire</th>
+                            <th>Statut</th>
+                            <th>Date arrestation</th>
+                            <th>Date dernière audition</th>
+                            <th>Éditer casier</th>
+                            <th>Voir </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let casier of this.casierList" >
+                            <td >{{casier.dossier.numerodossier}}</td>
+                            <td >{{casier.faitsReproches}}</td>
+                            <td >
+                              <div *ngFor="let user of casier.dossier.users">
+                                <div *ngFor="let role of user.roles">
+                                  <div *ngIf="role.rolename=='JUGE'">
+                              {{user.firstname}} {{user.lastname}}
+                                 </div>
+                                </div>
+                            </div>
+                            </td>
+                            <td >
+                              <div *ngFor="let user of casier.dossier.users">
+                                <div *ngFor="let role of user.roles">
+                                  <div *ngIf="role.rolename=='COMMISSAIRE'">
+                              {{user.firstname}} {{user.lastname}}
+                                 </div>
+                                </div>
+                            </div>
+                            </td>
+                            <td >{{dossier.statut}}</td>
+                            <td>{{casier.datedetention}}</td>
+                            <td>{{casier.dureepeine}}</td>
+                            <td></td>
+                            <td class="td_modif"   [attr.id]="casier.dossier.id" (click)="voirDossier(casier.dossier.id)" ><p style="display:inline-block;text-align:left;"> <i class="icon-eye" style="display:inline-block;text-align:right;font-size:1.2em;color: rgb(39, 104, 158);"></i></p></td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+
+  
+                     </fieldset>
+         
+          </div>
+  
+  
+          </div>
+ 
+    </div>
+    </div>
+
+  
+
+
+  

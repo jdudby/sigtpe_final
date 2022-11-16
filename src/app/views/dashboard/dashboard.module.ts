@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 import {
   AvatarModule,
@@ -19,6 +22,7 @@ import { ChartjsModule } from '@coreui/angular-chartjs';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -39,6 +43,9 @@ import { DashboardComponent } from './dashboard.component';
     ChartjsModule,
     AvatarModule,
     TableModule,
+    MatCardModule,
+    MatDividerModule,
+    MatProgressBarModule
   ],
   declarations: [DashboardComponent]
 })

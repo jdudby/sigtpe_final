@@ -1,0 +1,73 @@
+<h4>Liste des utilisateurs</h4>
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover" class="table table-bordered table-striped table-sm" id="users" name="users">
+  <thead>
+      <tr>
+        <th>ID</th>
+        <th>Identifiant</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Approbation</th>
+        <th>Statut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of this.users" >
+        <td >{{user?.id}}</td>
+        <td >{{user.username}}</td>
+        <td>{{user.firstname}}</td>
+        <td >{{user.lastname}}</td>
+        <td >{{user.email}}</td>
+        <td ><mat-slide-toggle [(ngModel)] = "user.accountNonLocked" (click)="switchAccountStatus(user)"></mat-slide-toggle> </td>
+        <td class="td_statut" *ngIf="user.accountNonLocked==true; else echec"><span class="badge badge-success">actif</span></td>
+        <ng-template #echec>
+          <td class="td_statut"><h6><span class="badge badge-danger">inactif</span></h6></td>
+        </ng-template>
+        <td class="td_modif"><a  class="btn btn-primary cil-pen" [attr.id]="user.id" (click)="gestion(user)" > ...</a></td>
+    
+      </tr>
+      
+    </tbody>
+  </table>
+  <hr>
+  <mat-divider></mat-divider>
+  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="border:1px rgb(226, 220, 220) solid;margin-bottom:15px;margin-top:20px;">
+<form style=" padding:5px 5px 15px 5px;min-height:35vh;">
+  <fieldset>
+  <legend><h4>Assigner à une fonction</h4></legend>
+  <div class="form-row">
+<div class="row">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="code">utilisateur :</span>
+  </div>
+  <select class="form-control" name="usergroup" id="usergroup" [(ngModel)]="this.user2.id" [ngModelOptions]="{standalone: true}" >
+    <option *ngFor="let user of this.users" [value]="user.id">{{user.firstname}} {{user.lastname}}</option>
+  </select>
+</div>
+</div>
+<div class="row">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="code">fonction :</span>
+  </div>
+  <select class="form-control" name="userrole" id="usergroup" [(ngModel)]="this.role.id" [ngModelOptions]="{standalone: true}" >
+    <option *ngFor="let role of this.roles" [value]="role.id">{{role.rolename}}</option>
+  </select>
+</div>
+
+</div>
+
+
+  <div class="input-group" style="display:flex;align-content:flex-end;border-top:1px rgb(226, 220, 220) solid;padding-top:10px;">
+  <button type="button" class="form-control btn btn-outline-info" (click)="assigner()">Assigner</button>
+</div>
+</div>
+
+</fieldset>
+</form>
+
+
+  </div>

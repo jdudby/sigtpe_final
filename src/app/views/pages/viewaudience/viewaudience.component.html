@@ -1,0 +1,129 @@
+<div class="animated fadeIn row">
+    <div class="card col-xs-12 col-sm-12 col-md-12 col-lg-9" >
+      <div class="card-header">
+        <h2>Audience no {{this.audienceid}}<i class="icon-book"></i> </h2>
+      </div>
+      <div class="card-body">
+         <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+            <form>
+              <fieldset>
+                <legend>Détails de l'audience</legend>
+                <div class="container-fluid">
+                <div class="row">
+
+                  <div class="form-group col-md-12 col-lg-6 form-left row">
+                    <label class="col-form-label" for="personneAuditionee">Personne auditionnée </label>
+                    <div class="col-lg-11 data">
+                     <p>{{this.audience.personneAuditionnee}}</p> 
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 form-right row">
+                    <label class="col-form-label" for="lienAvecAccuse">Relation avec le dossier </label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.audience.lienAvecAccuse}}</p>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-12 col-lg-6 form-left row">
+
+                    <label class="col-form-label" for="temoins">Témoins présents </label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.audience.temoins}}</p>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 row form-right">
+                    <label class="col-form-label" for="assistanceLegale">Assistance légale présente </label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.audience.assistanceLegale}}</p>
+                     </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 row form-left">
+                    <label class="col-form-label" for="tuteurLegal">Nom du tuteur légal présent</label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.audience.tuteurLegal}}</p>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 row form-right">
+                    
+                  </div>
+                  <mat-divider></mat-divider>
+
+                  <div class="form-group col-md-12 col-lg-6 form-left row">
+                    <label class="col-form-label" for="juge">Juge siégeant </label>
+                    <div class="col-lg-11 data">
+                       {{this.juge.firstname}} {{this.juge.lastname}}
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 form-right row">
+                    <label class="col-form-label" for="commissaire">Commissaire siégeant </label>
+                    <div class="col-lg-11 data">
+                       {{this.commissaire.firstname}} {{this.commissaire.lastname}}
+                    </div>
+                  </div>
+
+                 
+                  
+                  <div class="form-group col-md-12 col-lg-6 row form-left">
+                    <label class="col-form-label" for="prochaineEtape">Prochaine étape</label>
+                    <div class="col-lg-11 data">
+                     <p>{{this.audience.prochaineEtape}}</p>
+                    </div>
+                  </div>
+                 
+
+                  <div class="form-group col-md-12 col-lg-6 row form-right">
+                    <label class="col-form-label" for="dateProchaineEtape">Date prochaine étape</label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.audience.dateProchaineEtape}}</p>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 row form-left">
+                    <label class="col-form-label" for="chargeRetenu">Charges retenues </label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.audience.chargesRetenues}}</p> 
+
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12 col-lg-6 form-right row">
+                    <label class="col-form-label" for="statut">Nouveau statut dossier </label>
+                    <div class="col-lg-11 data">
+                      <p>{{this.newStatutDossier}}</p>
+                        
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+                </fieldset>
+                </form>
+                </div>
+  
+  
+      </div>
+
+
+<div class="card-footer">
+  
+</div>
+</div>
+
+    <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-3" >
+    <div class="notebook">
+      <mat-list>
+        <div mat-subheader> <h4>Audiences déjà tenues</h4></div>
+        <mat-list-item *ngFor="let au of this.audiences">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line> <a routerLink="#" (click)="refresh(au.id,this.idDossier)">Audience de {{au.personneAuditionnee}} </a></div>
+          <div mat-line class="line"> Date audience : </div>
+        </mat-list-item>
+      </mat-list>
+      </div>
+    </div>
+    </div>

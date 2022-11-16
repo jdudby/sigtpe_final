@@ -3,13 +3,18 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule,HttpClientXsrfModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import {HttpClientModule,HttpClientXsrfModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 
 import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface,
   PerfectScrollbarModule,
 } from 'ngx-perfect-scrollbar';
+
+
+
 
 // Import routing module
 import { AppRoutingModule } from './app-routing.module';
@@ -69,6 +74,7 @@ const APP_CONTAINERS = [
     AppRoutingModule,
     AvatarModule,
     BreadcrumbModule,
+    FontAwesomeModule,
     FooterModule,
     DropdownModule,
     GridModule,
@@ -110,7 +116,6 @@ const APP_CONTAINERS = [
     },
 
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
-
     IconSetService,
     Title,
 

@@ -4,6 +4,9 @@ fieldset{
   
  
 }
+.help-block{
+    font-style:italic;
+}
 
 legend{
     background-color:rgb(33,123,150);
@@ -21,6 +24,12 @@ legend{
 cursor:pointer;
 background-color:rgb(60, 95, 105);
 color:#fff;
+}
+
+fa-icon{
+    color:rgb(60, 95, 105);
+    font-weight: bold; 
+    font-size:large;
 }
 
 

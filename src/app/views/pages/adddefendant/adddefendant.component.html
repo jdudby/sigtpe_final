@@ -1,0 +1,442 @@
+<div class="animated fadeIn">
+<div class="card">
+    <div class="card-header">
+        <h1> Enregistrer un nouvel enfant<i class="icon-book"></i> </h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-12 mb-12">
+
+
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>Saisie des informations d'identification de l'enfant</strong>
+                                </div>
+                                <div class="card-body">
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <div class="form-row">
+                                            <div class="row">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" for="code">ID de l'enfant
+                                                                TPE :</span>
+                                                        </div>
+                                                        <input type="text" id="id" class="form-control"
+                                                            name="id" [(ngModel)]="userData.id"
+                                                            [ngModelOptions]="{standalone: true}" disabled>
+                                                    </div>
+                                                </div>
+
+
+                                                <div
+                                                    class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5 offset-md-2">
+
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" for="niveauEtude">Plus
+                                                                haut niveau d'éducation atteint</span>
+                                                        </div>
+                                                        <select id="niveauEtude" name="niveauEtude"
+                                                            class="form-control" [(ngModel)]="userData.niveauetude"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option value="analphabete">Ne sait ni lire ni écrire
+                                                            </option>
+                                                            <option value="fondamentale">École fondamentale</option>
+                                                            <option value="secondaire">Nouveau secondaire</option>
+                                                            <option value="Après classiques">Fin études classiques
+                                                                et +</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="form-group  col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Nom :</span>
+                                                        </div>
+                                                        <input type="text" id="nom" name="nom" class="form-control"
+                                                            [(ngModel)]="userData.nom"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                    </div>
+                                                </div>
+
+
+                                                <div
+                                                    class="form-group  col-xs-12 col-sm-12 col-md-5 col-lg-5 offset-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Prénom :</span>
+                                                        </div>
+                                                        <input type="text" id="prenom" name="prenom"
+                                                            class="form-control" [(ngModel)]="userData.prenom"
+                                                            [ngModelOptions]="{standalone: true}">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group   col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Alias :</span>
+                                                        </div>
+                                                        <input type="text" id="alias" name="alias"
+                                                            class="form-control" [(ngModel)]="userData._alias"
+                                                            [ngModelOptions]="{standalone: true}">
+
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="form-group  col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2 offset-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Date de naissance
+                                                                :</span>
+                                                        </div>
+                                                        <input class="form-control" id="datenaiss" type="date"
+                                                            name="datenaiss" [(ngModel)]="datenaissance"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                    </div>
+
+                                                </div>
+
+                                                <div
+                                                    class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Age approximatif :</span>
+                                                        </div>
+                                                        <input class="form-control" id="ageApproximatif" type="text"
+                                                            name="ageApproximatif"
+                                                            [(ngModel)]="userData.ageapproximatif"
+                                                            [ngModelOptions]="{standalone: true}">
+
+                                                    </div>
+                                                    <div>
+                                                        <p class="form-text text-muted">Si la date de naissance est
+                                                            inconnue, veuiller entrer l'age approximatif</p>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div
+                                                    class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5 offset-md-2">
+
+                                                    <div class="input-group ">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Lieu de naissance</span>
+                                                        </div>
+                                                        <select class="form-control"
+                                                            [(ngModel)]="userData.lieu_naissance.id"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option *ngFor="let ville of this.villes"
+                                                                [value]="ville?.id">{{ville?.ville}}</option>
+
+                                                        </select>
+
+                                                    </div>
+                                                    <div>
+                                                        <p class="form-text text-muted">Ou lieu de naissance
+                                                            approximatif</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group   col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Adresse :</span>
+                                                        </div>
+                                                        <input type="text" id="adresse" name="adresse"
+                                                            class="form-control" [(ngModel)]="userData.adresse"
+                                                            [ngModelOptions]="{standalone: true}">
+
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="form-group  col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2 offset-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Ville de résidence
+                                                                :</span>
+                                                        </div>
+                                                        <select class="form-control"
+                                                        [(ngModel)]="userData.ville.id"
+                                                        [ngModelOptions]="{standalone: true}">
+                                                        <option *ngFor="let ville of this.villes"
+                                                            [value]="ville?.id">{{ville?.ville}}</option>
+
+                                                    </select>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-5">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" for="habitation">Enfant
+                                                                vivant avec </span>
+                                                        </div>
+                                                        <select id="habitation" name="environnement"
+                                                            class="form-control"
+                                                            [(ngModel)]="userData.environnement"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option value="Famille">Famille biologique</option>
+                                                            <option value="Famille">Famille élargie</option>
+                                                            <option value="Famille">Famille d'accueil</option>
+                                                            <option value="Famille">Centre résidentielle</option>
+                                                            <option value="Maison adoption">Crêches</option>
+                                                            <option value="rues">Dans les rues</option>
+                                                            <option value="Sans domicile fixe">Sans domicile fixe
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="form-group  col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2 offset-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Téléphone contact
+                                                                :</span>
+                                                        </div>
+                                                        <input class="form-control" id="phoneContact" type="tel"
+                                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+                                                            name="phonecontact"
+                                                            [(ngModel)]="userData.telephoneperscontact"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                        <span class="validity"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-5">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" for="habitation">État
+                                                                physique</span>
+                                                        </div>
+                                                        <select id="etatPhysique" name="etatPhysique"
+                                                            class="form-control" [(ngModel)]="userData.etatphysique"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option value="Handicap Physique">Handicap physique
+                                                            </option>
+                                                            <option value="En pleine forme">En pleine forme</option>
+                                                            <option value="Signe de maltraitance">Signes de
+                                                                maltraitance</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div
+                                                    class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2 offset-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Nom de la personne de
+                                                                contact :</span>
+                                                        </div>
+                                                        <input class="form-control" id="persContact" type="tel"
+                                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+                                                            name="persContact" [(ngModel)]="userData.nomperscontact"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                        <span class="validity"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">État mental :</span>
+                                                        </div>
+                                                        <input class="form-control" id="etatMental" type="tel"
+                                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+                                                            name="etatMental"
+                                                            [(ngModel)]="userData.evaluationmental"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                        <span class="validity"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="form-group col-xs-12 col-sm-12 col-md-5 col-lg-5 col-md-2 offset-md-2">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Lien personne contact
+                                                                :</span>
+                                                        </div>
+                                                        <input class="form-control" id="persContactLienAccuse"
+                                                            type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+                                                            name="persContactLienAccuse"
+                                                            [(ngModel)]="userData.perscontactlienaccuse"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                        <span class="validity"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group  col-xs-12 col-sm-12 col-md-4 col-lg-4"
+                                                    style="border:1px rgb(230, 231, 231) outset;">
+                                                    <label class="col-md-5 col-form-label">Sexe : </label>
+                                                    <div class="col-form-label">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="sexe"
+                                                                id="sexeg" value="Garçon"
+                                                                [(ngModel)]="userData.sexe"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="Garçon">
+                                                                Garçon
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="sexe"
+                                                                id="sexef" value="Fille" [(ngModel)]="userData.sexe"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="fille">
+                                                                Fille
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-4   offset-md-3"
+                                                    style="border:1px rgb(230, 231, 231) outset;">
+                                                    <label class="col-md-5 col-form-label">Occupation : </label>
+                                                    <div class="col-form-label">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="milieuScolaire" name="milieuScolaire"
+                                                                [(ngModel)]="userData.estscolarise"
+                                                                (click)="gestionstatutparental()">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="milieuScolaire">
+                                                                Suit des cours en milieu scolaire
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="journalier" name="journalier"
+                                                                [(ngModel)]="userData.esttravailleurjournalier"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                (click)="gestionstatutparental()">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="journalier">
+                                                                Journalié
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="estDansLesRues" name="adopte"
+                                                                [(ngModel)]="userData.vitdanslesrues">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="estDansLesRues">
+                                                                Demande de l'assistance dans les rues
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="estDomestique" name="estDomestique"
+                                                                [(ngModel)]="userData.vitchezsesparents"
+                                                                (click)="gestionstatutparental()">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="parentvivant">
+                                                                Enfant en domesticité </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group  col-xs-12 col-sm-12 col-md-4 col-lg-4"
+                                                    style="border:1px rgb(230, 231, 231) outset;">
+                                                    <label class="col-md-4 col-form-label">Situation parentale :
+                                                    </label>
+                                                    <div class="col-form-label">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="parentBiologique" name="parentBiologique"
+                                                                [(ngModel)]="userData.estencontactavecparentbiologique"
+                                                                (click)="gestionstatutparental()">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="parentBiologique">
+                                                                En contact avec parents biologiques
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="parentElargie" name="parentElargie"
+                                                                [(ngModel)]="userData.estencontactavecparentelargi"
+                                                                [ngModelOptions]="{standalone: true}"
+                                                                (click)="gestionstatutparental()">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="parentElargie">
+                                                                En contact avec parents élargis
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="adopte" name="adopte"
+                                                                [(ngModel)]="userData.estadopte">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="adopte">
+                                                                Adopté(e)
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="unparentvivant" name="unparentvivant"
+                                                                [(ngModel)]="userData.unparentvivant"
+                                                                (click)="gestionstatutparental()">
+                                                            <label class="form-check-label"
+                                                                style="font-weight:normal;" for="parentvivant">
+                                                                Parent(s) vivant(s)
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="card-footer row">
+                                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-7"></div>
+                                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+                                        <button type="submit" class="p-2 mt-1 col-xs-12 col-sm-12 col-md-4 btn btn-sm btn-outline-success"
+                                            (click)="submitdata()"><i class="fa fa-dot-circle-o"></i> Valider</button>
+                                        <button type="reset"
+                                            class="p-2 mt-1 col-xs-12 col-sm-12 col-md-4  offset-md-1  btn btn-sm btn-outline-danger"
+                                            (click)="reset()"><i class="fa fa-ban"></i> Réinitialiser</button>
+                                    </div>
+                                    </div> 
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+</div>
+</div>
